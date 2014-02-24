@@ -10,24 +10,48 @@ var Triangle = {
   },
 
   valid: function() {
-    if ((this.sideA + this.sideB > this.sideC) || (this.sideB + this.sideC > this.sideA) || (this.sideA + this.sideC > this.sideB)) {
+    if ((this.sideA + this.sideB > this.sideC) && (this.sideB + this.sideC > this.sideA) && (this.sideA + this.sideC > this.sideB)) {    
       return true;
+    } else {
+      return false;
     }
   }
 };
 
 
-// var triangle = function(a,b,c) {
-//   if (a===b && b===c) {
-//     return "equilateral";
-//   } else if (a===b || a===c || b===c) {
-//     return "isosceles";
-//   } else if ()
+$(document).ready(function() {
+  $("form#new-triangle").submit(function(event) {
+    event.preventDefault();
 
-//   else {
-//     return "We haven't figured it out yet.";
-//   } 
-// }
+    var inputtedSideA = $("input#new-sideA").val();
+    var inputtedSideB = $("input#new-sideB").val();
+    var inputtedSideC = $("input#new-sideC").val();
+
+    var newTriangle = Object.create(Triangle);
+    newTriangle.sideA = parseInt(inputtedSideA);
+    newTriangle.sideB = parseInt(inputtedSideB);
+    newTriangle.sideC = parseInt(inputtedSideC);
+
+   
+    if (newTriangle.valid() === false) {
+      alert("This is not a valid triangle.  Please enter new sides.");
+      this.reset();
+        
+    } else if (newTriangle.type() === "equilateral") {
+       $("ul.equilateralList").append("<li><span class='triangle'>" + inputtedSideA + "," + inputtedSideB + "," + inputtedSideC + "</span></li>")
+      this.reset();
+
+    } else if (newTriangle.type() === "isosceles") {
+      $("ul.isoscelesList").append("<li><span class='triangle'>" + inputtedSideA + "," + inputtedSideB + "," + inputtedSideC + "</span></li>")
+      this.reset();
+
+    } else if (newTriangle.type() === "scalene") {
+      $("ul.scaleneList").append("<li><span class='triangle'>" + inputtedSideA + "," + inputtedSideB + "," + inputtedSideC + "</span></li>")
+      this.reset();
+    }
+
+  });
+});
 
 
  

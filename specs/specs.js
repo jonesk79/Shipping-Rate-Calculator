@@ -25,12 +25,12 @@ describe('Triangle', function() {
     });
   });
   describe('valid', function() {
-    it("returns true for a set of sides that does not make a triangle", function() {
+    it("returns false for a set of sides that does not make a triangle", function() {
       var testTriangle = Object.create(Triangle);
       testTriangle.sideA = 10;
       testTriangle.sideB = 3;
       testTriangle.sideC = 4;
-      testTriangle.valid().should.equal(true);
+      testTriangle.valid().should.equal(false);
     });
   });
 });
