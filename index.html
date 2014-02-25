@@ -5,52 +5,38 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.11.0.js"></script>
     <script src="js/scripts.js"></script>
-    <title>Triangle Tracker</title>
+    <title>Shipping Rate Calculator</title>
   </head>
   <body>
     <div class="container">
-      <h1>Triangle Tracker</h1>
+      <h1>Shipping Rate Calculator</h1>
 
       <div class="row">   
         <div class="col-md-3">
-          <h4>New Triangle:</h4>
-          <form id="new-triangle">
+          <h4>Package</h4>
+          <form id="new-package">
             <div class="form-group">
-              <label for="new-sideA">Side 1</label>
-              <input id="new-sideA" type="text" class="form-control">
+              <label for="new-weight">Weight:</label>
+              <input id="new-weight" type="text" class="form-control">
             </div>
 
             <div class="form-group">
-              <label for="new-sideB">Side 2</label>
-              <input id="new-sideB" type="text" class="form-control">
+              <label for="new-location">Location</label><br>
+              <input id="new-location" type="radio" name="location" value="domestic">Domestic<br>
+              <input id="new-location" type="radio" name="location" value="international">International<br>
             </div>
 
             <div class="form-group">
-              <label for="new-sideC">Side 3</label>
-              <input id="new-sideC" type="text" class="form-control">
+              <label for="new-overnight">Overnight</label><br>
+              <input id="new-overnight" type="radio" name="yes" value="yes">Yes<br>
+              <input id="new-overnight" type="radio" name="no" value="no">No<br>
             </div>
 
-        <button type="submit" class="btn">Add</button>
-      </form>
-    </div>
-        <div class="col-md-3">
-          <h4>Equilateral Triangle:</h4>
-          <ul class="equilateralList">
-          </ul>
+            <button type="submit" class="btn">Add</button>
+          </form>
         </div>
-
-        <div class="col-md-3">
-          <h4>Isosceles Triangle:</h4>
-          <ul class="isoscelesList">
-          </ul>
-        </div>
-
-        <div class="col-md-3">
-          <h4>Scalene Triangle:</h4>
-          <ul class="scaleneList">
-          </ul>
-        </div>
-
+        <div class="container">
+          <ul class="cost"></ul>
     </div>
   </div>
   </body>
