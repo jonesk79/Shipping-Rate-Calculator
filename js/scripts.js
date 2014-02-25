@@ -2,7 +2,6 @@ var Package = {
   costToShip: function() {
     
     if (this.overnight === "no" && this.location !== "international") {
-       alert("Overnight: "+this.overnight+" Location: "+this.location); 
        return (this.weight*10);
      } else if (this.overnight === "no" && this.location === "international"){
        return (this.weight*10)+50;
